@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var kalender = document.getElementById('kalender');
+    var calender = document.getElementById('kalender');
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth() + 1; // Januar ist 0
@@ -7,15 +7,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Aktuelles Datum in gewünschtem Format in die Konsole ausgeben
     today = String(dd).padStart(2, '0') + '/' + String(mm).padStart(2, '0') + '/' + yyyy;
-
-        
+   
     // Create an array with numbers from 1 to 24
     var doors = Array.from({ length: 24 }, (_, i) => i + 1);
 
     // Shuffle the array
     doors = doors.sort(() => Math.random() - 0.5);
 
-    var persents = [
+    var gift = [
         'Ich liebe dich, den du bist für mich mein einiziges Licht, darauf das unsere Liebe niemals bricht.',
         'Gutschein: Eine Dönerpizza mit mir',
         'Deine Schönheit erstaunt mich Tag für Tag, und egal was ich sag, du bist das was ich am meisten in meinem Leben mag.',
@@ -56,26 +55,24 @@ document.addEventListener("DOMContentLoaded", function() {
             div.classList.add('locked'); // Zukünftige Türen als "gesperrt" markieren
         }
 
-        kalender.appendChild(div);
+        calender.appendChild(div);
     })
 
     function openPresent(day) {
-        var presentText = persents[day -1] 
+        var giftText = gift[day -1] 
         var modalBackground = document.getElementById('background')
-        var presentModal = document.getElementById('modal')
+        var giftModal = document.getElementById('modal')
         var getDoorId = document.getElementById('door-' + day)
         
-        
-
         if (getDoorId.classList.contains('opened')) {
             modalBackground.style.display = 'block'
-            presentModal.style.display = 'block'
-            presentModal.innerHTML = presentText
+            giftModal.style.display = 'block'
+            giftModal.innerHTML = giftText
         }
 
         modalBackground.addEventListener('click', () => {
             modalBackground.style.display = 'none'
-            presentModal.style.display = 'none'
+            giftModal.style.display = 'none'
         })
     }
 });
