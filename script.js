@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var dd = today.getDate();
     var mm = today.getMonth() + 1; // Januar ist 0
     var yyyy = today.getFullYear();
+    var snowflakes = document.getElementById('snowflake')
 
     // Aktuelles Datum in gewünschtem Format in die Konsole ausgeben
     today = String(dd).padStart(2, '0') + '/' + String(mm).padStart(2, '0') + '/' + yyyy;
@@ -13,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Shuffle the array
     doors = doors.sort(() => Math.random() - 0.5);
+
+    snowflakes.style.display = 'none'
 
     var gift = [
         'Ich liebe dich, den du bist für mich mein einiziges Licht, darauf das unsere Liebe niemals bricht.',
@@ -68,11 +71,13 @@ document.addEventListener("DOMContentLoaded", function() {
             modalBackground.style.display = 'block'
             giftModal.style.display = 'block'
             giftModal.innerHTML = giftText
+            snowflakes.style.display = 'block'
         }
 
         modalBackground.addEventListener('click', () => {
             modalBackground.style.display = 'none'
             giftModal.style.display = 'none'
+            snowflakes.style.display = 'none'
         })
     }
 });
