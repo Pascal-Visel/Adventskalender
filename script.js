@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Aktuelles Datum in gewünschtem Format in die Konsole ausgeben
     today = String(dd).padStart(2, '0') + '/' + String(mm).padStart(2, '0') + '/' + yyyy;
-    console.log(today)
+
         
     // Create an array with numbers from 1 to 24
     var doors = Array.from({ length: 24 }, (_, i) => i + 1);
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
     function openPresent(day) {
-        var presentText = persents[day -1]
+        var presentText = persents[day -1] 
         var modalBackground = document.getElementById('background')
         var presentModal = document.getElementById('modal')
         var getDoorId = document.getElementById('door-' + day)
